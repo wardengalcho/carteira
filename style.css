@@ -1,0 +1,46 @@
+
+        .face {
+            width: 900px;
+            background-color: darkcyan;
+            border: 2px solid #000;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            backface-visibility: hidden;
+            position: absolute;
+        }
+        .face.verso {
+            transform: rotateY(180deg);
+        }
+        .cartão-interno {
+            position: relative;
+            width: 900px;
+            height: 600px;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .cartão-interno.girar {
+            transform: rotateY(180deg);
+        }
+
+        .container-main {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .foto {
+            display: flex;
+            gap: 20px;
+        }
+        .footer{
+            display: flex;
+            justify-content: space-between;
+        }
+        .verso {
+            width: 900px;
+            background-color: darkcyan;
+            border: 2px solid #000;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            height: 600px;
+            }

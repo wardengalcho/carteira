@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão 3D</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #1e1e1e;
+            font-family: Arial, sans-serif;
+        }
+
+        .cartao-container {
+            perspective: 1000px;
+        }
+
+        .cartao-interno {
+            width: 900px;
+            height: 500px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+        }
+
+        .cartao-interno.girar {
+            transform: rotateY(180deg);
+        }
+
+        .face {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 20px;
+            box-sizing: border-box;
+            backface-visibility: hidden;
+        }
+
+        .frente {
+            background: linear-gradient(135deg, #003b46, #07575b);
+        }
+
+        .verso {
+            background: linear-gradient(135deg, #111, #333);
+            transform: rotateY(180deg);
+        }
+
+        .topo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .container-main {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .foto img {
+            width: 130px;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .nome h1,
+        .nome h2,
+        .nome p {
+            margin: 5px 0;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        hr {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .texto-azul {
+            color: darkturquoise;
+        }
+
+        .texto-branco {
+            color: aliceblue;
+        }
+
+        .texto-amarelo {
+            color: yellow;
+        }
+
+        .codigo {
+            margin-top: 40px;
+            background: white;
+            height: 60px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="cartao-container" id="areaCartao">
+
+        <div class="cartao-interno" id="meuCartao">
+
+            <!-- FRENTE -->
+            <div class="face frente">
+
+                <div class="topo">
+                    <h1 class="texto-branco">SNE</h1>
+
+                    <h3 class="texto-branco">
+                        clube de <br> estudantes
+                    </h3>
+                </div>
+
+                <p class="texto-branco">
+                    sociedade nacional dos estudantes
+                </p>
+
+                <hr>
+
+                <div class="container-main">
+
+                    <div class="foto">
+                        <img src="img/WIN_20260514_16_10_35_Pro.jpg" alt="">
+                    </div>
+
+                    <div class="nome">
+
+                        <h2 class="texto-azul">nome do aluno</h2>
+                        <h1 class="texto-amarelo">Pedro Guilherme</h1>
+
+                        <p class="texto-azul">cpf</p>
+                        <h1 class="texto-branco">000.000.000-00</h1>
+
+                        <p class="texto-azul">instituição/curso</p>
+                        <h1 class="texto-branco">
+                            UNIFAVIP | Ciência da Computação
+                        </h1>
+
+                        <p class="texto-azul">matrícula</p>
+                        <h1 class="texto-branco">#2026-9988</h1>
+
+                    </div>
+                </div>
+
+                <div class="footer">
+
+                    <p class="texto-azul">
+                        id: 99-xyz-2026
+                    </p>
+
+                    <h3 class="texto-azul">
+                        2026
+                    </h3>
+
+                </div>
+
+            </div>
+
+            <!-- VERSO -->
+            <div class="face verso">
+
+                <div class="topo">
+
+                    <h1 class="texto-branco">
+                        VERSO
+                    </h1>
+
+                    <h3 class="texto-branco">
+                        clube de <br> estudantes
+                    </h3>
+
+                </div>
+
+                <hr>
+
+                <h2 class="texto-branco">
+                    Informações adicionais
+                </h2>
+
+                <p class="texto-branco">
+                    Este cartão é válido em todo território nacional.
+                </p>
+
+                <div class="codigo"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        const meuCartao = document.getElementById('meuCartao');
+        const areaCartao = document.getElementById('areaCartao');
+
+        areaCartao.addEventListener('click', function () {
+            meuCartao.classList.toggle('girar');
+        });
+    </script>
+
+</body>
+
+</html>
